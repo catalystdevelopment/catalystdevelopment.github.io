@@ -1611,6 +1611,9 @@
       ],
       "allOf": [
         {
+          "$ref": "#/definitions/Node"
+        },
+        {
           "properties": {
             "filename": {
               "description": "The filename to store/load the wallet from. Note that this is relative to where turtle-wallet-api was launched from - it is recommended you use an absolute path.",
@@ -1623,9 +1626,6 @@
               "example": "supersecretpassword"
             }
           }
-        },
-        {
-          "$ref": "#/definitions/Node"
         }
       ]
     },
