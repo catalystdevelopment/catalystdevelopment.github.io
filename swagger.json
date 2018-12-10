@@ -730,7 +730,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -792,7 +792,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -854,7 +854,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -1209,7 +1209,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -1275,7 +1275,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -1368,7 +1368,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -1403,7 +1403,7 @@
             "$ref": "#/responses/UnauthorizedError"
           },
           "403": {
-            "$ref": "#/responses/AlreadyOpen"
+            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
