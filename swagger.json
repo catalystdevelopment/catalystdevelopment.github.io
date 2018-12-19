@@ -471,7 +471,12 @@
         }
       }
     },
-    "/keys/[address]": {
+    "/keys/{address}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        }
+      ],
       "get": {
         "tags": [
           "keys"
@@ -512,7 +517,12 @@
         }
       }
     },
-    "/keys/mnemonic/[address]": {
+    "/keys/mnemonic/{address}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        }
+      ],
       "get": {
         "tags": [
           "keys"
@@ -862,7 +872,15 @@
         }
       }
     },
-    "/addresses/[address]/[payment ID]": {
+    "/addresses/{address}/{paymentID}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        },
+        {
+          "$ref": "#/parameters/paymentID"
+        }
+      ],
       "get": {
         "tags": [
           "addresses"
@@ -930,7 +948,12 @@
         }
       }
     },
-    "/transactions/[hash]": {
+    "/transactions/hash/{hash}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/hash"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -998,7 +1021,12 @@
         }
       }
     },
-    "/transactions/unconfirmed/[address]": {
+    "/transactions/unconfirmed/{address}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -1035,7 +1063,12 @@
         }
       }
     },
-    "/transactions/[start height]": {
+    "/transactions/{startHeight}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/startHeight"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -1071,7 +1104,15 @@
         }
       }
     },
-    "/transactions/[start height]/[end height]": {
+    "/transactions/{startHeight}/{endHeight}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/startHeight"
+        },
+        {
+          "$ref": "#/parameters/endHeight"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -1108,7 +1149,15 @@
         }
       }
     },
-    "/transactions/[address]/[start height]": {
+    "/transactions/address/{address}/{startHeight}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        },
+        {
+          "$ref": "#/parameters/startHeight"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -1145,7 +1194,18 @@
         }
       }
     },
-    "/transactions/[address]/[start height]/[end height]": {
+    "/transactions/address/{address}/{startHeight}/{endHeight}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        },
+        {
+          "$ref": "#/parameters/startHeight"
+        },
+        {
+          "$ref": "#/parameters/endHeight"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -1440,7 +1500,12 @@
         }
       ]
     },
-    "/transactions/privatekey/[hash]": {
+    "/transactions/privatekey/{hash}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/hash"
+        }
+      ],
       "get": {
         "tags": [
           "transactions"
@@ -1512,7 +1577,12 @@
         }
       }
     },
-    "/balance/[address]": {
+    "/balance/{address}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        }
+      ],
       "get": {
         "tags": [
           "balance"
@@ -1726,5 +1796,42 @@
       }
     }
   },
-  "host": "127.0.0.1:8070"
+  "host": "127.0.0.1:8070",
+  "parameters": {
+    "address": {
+      "in": "path",
+      "name": "address",
+      "required": true,
+      "type": "string",
+      "description": "The address to use for this operation. Should be a valid, 99 character TRTL address."
+    },
+    "paymentID": {
+      "in": "path",
+      "name": "paymentID",
+      "required": true,
+      "type": "string",
+      "description": "The payment ID to use for this operation. Should be a 64 char hex string."
+    },
+    "hash": {
+      "in": "path",
+      "name": "hash",
+      "required": true,
+      "type": "string",
+      "description": "The transaction hash to use for this operation. Should be a 64 char hex string."
+    },
+    "startHeight": {
+      "in": "path",
+      "name": "startHeight",
+      "required": true,
+      "type": "number",
+      "description": "The starting block height to use for this operation."
+    },
+    "endHeight": {
+      "in": "path",
+      "name": "endHeight",
+      "required": true,
+      "type": "number",
+      "description": "The ending block height to use for this operation."
+    }
+  }
 }
