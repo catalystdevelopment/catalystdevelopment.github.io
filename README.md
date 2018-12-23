@@ -11,4 +11,6 @@ Modify the swagger.json file. You may wish to use http://editor.swagger.io/ to p
 
 ## Updating dist folder after changes
 
+`npm i` (Only the first time)
+
 `npm run-script build`
