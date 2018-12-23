@@ -654,7 +654,14 @@
             "$ref": "#/responses/InternalError"
           }
         }
-      },
+      }
+    },
+    "/addresses/{address}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/address"
+        }
+      ],
       "delete": {
         "tags": [
           "addresses"
