@@ -7,7 +7,7 @@ Simply open `index.html`
 
 ## Updating the documentation
 
-Modify the swagger.json file. You may wish to use http://editor.swagger.io/ to preview how your changes will look.
+Modify the swagger.json file. You may wish to use http://editor.swagger.io/ to preview how your changes will look (Import as yaml - easier to modify - then export as JSON)
 
 ## Updating dist folder after changes
 
