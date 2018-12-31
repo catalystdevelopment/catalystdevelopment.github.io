@@ -100,29 +100,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "required": [
-                "privateSpendKey",
-                "privateViewKey"
-              ],
-              "allOf": [
-                {
-                  "$ref": "#/definitions/WalletImport"
-                },
-                {
-                  "properties": {
-                    "privateViewKey": {
-                      "description": "64 char hex private view key",
-                      "type": "string",
-                      "example": "493f522e1f46b5c07f753ed28dc2db9da5f571f28c2fa54f4c9a0a7941b09d0b"
-                    },
-                    "privateSpendKey": {
-                      "description": "64 char hex private spend key",
-                      "type": "string",
-                      "example": "5c703d9bde0b7cd5ff3e19ea826a44066534661a7322c85e854e73f06e49cd06"
-                    }
-                  }
-                }
-              ]
+              "$ref": "#/definitions/WalletKeyImport"
             }
           }
         ]
@@ -157,23 +135,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "required": [
-                "mnemonicSeed"
-              ],
-              "allOf": [
-                {
-                  "$ref": "#/definitions/WalletImport"
-                },
-                {
-                  "properties": {
-                    "mnemonicSeed": {
-                      "description": "The 25 words mnemonic seed",
-                      "type": "string",
-                      "example": "cynical waveform sixteen husband zebra ritual vexed jaws eccentric jewels toenail having nabbing wept nozzle grunt tipsy flying pegs feel upright lower racetrack sapling sapling"
-                    }
-                  }
-                }
-              ]
+              "$ref": "#/definitions/WalletSeedImport"
             }
           }
         ]
@@ -192,29 +154,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "required": [
-                "privateViewKey",
-                "address"
-              ],
-              "allOf": [
-                {
-                  "$ref": "#/definitions/WalletImport"
-                },
-                {
-                  "properties": {
-                    "privateViewKey": {
-                      "description": "64 char hex private view key",
-                      "type": "string",
-                      "example": "493f522e1f46b5c07f753ed28dc2db9da5f571f28c2fa54f4c9a0a7941b09d0b"
-                    },
-                    "address": {
-                      "description": "99 char public TRTL address",
-                      "type": "string",
-                      "example": "TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW"
-                    }
-                  }
-                }
-              ]
+              "$ref": "#/definitions/WalletViewImport"
             }
           }
         ],
@@ -265,31 +205,6 @@
           },
           "403": {
             "$ref": "#/responses/AlreadyOpen"
-          },
-          "500": {
-            "$ref": "#/responses/InternalError"
-          }
-        }
-      }
-    },
-    "/wallet": {
-      "delete": {
-        "tags": [
-          "wallet"
-        ],
-        "summary": "Closes and saves the current wallet, allowing a new one to be opened/imported",
-        "responses": {
-          "200": {
-            "$ref": "#/responses/Success"
-          },
-          "400": {
-            "$ref": "#/responses/BadRequest"
-          },
-          "401": {
-            "$ref": "#/responses/UnauthorizedError"
-          },
-          "403": {
-            "$ref": "#/responses/NotOpen"
           },
           "500": {
             "$ref": "#/responses/InternalError"
@@ -1724,6 +1639,75 @@
         }
       ]
     },
+    "WalletKeyImport": {
+      "required": [
+        "privateViewKey",
+        "privateSpendKey"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/WalletImport"
+        },
+        {
+          "properties": {
+            "privateViewKey": {
+              "description": "64 char hex private view key",
+              "type": "string",
+              "example": "493f522e1f46b5c07f753ed28dc2db9da5f571f28c2fa54f4c9a0a7941b09d0b"
+            },
+            "privateSpendKey": {
+              "description": "64 char hex private spend key",
+              "type": "string",
+              "example": "5c703d9bde0b7cd5ff3e19ea826a44066534661a7322c85e854e73f06e49cd06"
+            }
+          }
+        }
+      ]
+    },
+    "WalletSeedImport": {
+      "required": [
+        "mnemonicSeed"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/WalletImport"
+        },
+        {
+          "properties": {
+            "mnemonicSeed": {
+              "description": "The 25 words mnemonic seed",
+              "type": "string",
+              "example": "cynical waveform sixteen husband zebra ritual vexed jaws eccentric jewels toenail having nabbing wept nozzle grunt tipsy flying pegs feel upright lower racetrack sapling sapling"
+            }
+          }
+        }
+      ]
+    },
+    "WalletViewImport": {
+      "required": [
+        "privateViewKey",
+        "address"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/WalletImport"
+        },
+        {
+          "properties": {
+            "privateViewKey": {
+              "description": "64 char hex private view key",
+              "type": "string",
+              "example": "493f522e1f46b5c07f753ed28dc2db9da5f571f28c2fa54f4c9a0a7941b09d0b"
+            },
+            "address": {
+              "description": "99 char public TRTL address",
+              "type": "string",
+              "example": "TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW"
+            }
+          }
+        }
+      ]
+    },
     "Node": {
       "type": "object",
       "properties": {
@@ -1804,7 +1788,9 @@
     }
   },
   "host": "127.0.0.1:8070",
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "parameters": {
     "address": {
       "in": "path",
