@@ -1545,6 +1545,55 @@
           }
         }
       }
+    },
+    "/balances": {
+      "get": {
+        "tags": [
+          "balance"
+        ],
+        "summary": "Get the balance for every address",
+        "responses": {
+          "200": {
+            "description": "The operation completed successfully.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "unlocked": {
+                    "type": "number",
+                    "format": "uint64",
+                    "description": "Unlocked, spendable balance. In atomic units.",
+                    "example": 1234
+                  },
+                  "locked": {
+                    "type": "number",
+                    "format": "uint64",
+                    "description": "Locked, unspendable balance. Possibly unconfirmed change, or a transaction with an unlock time specified. In atomic units.",
+                    "example": 123
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "The address this balance belongs to",
+                    "example": "TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/responses/NotOpen"
+          },
+          "500": {
+            "$ref": "#/responses/InternalError"
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
