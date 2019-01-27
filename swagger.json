@@ -651,6 +651,11 @@
                   "type": "string",
                   "description": "The created address",
                   "example": "TRTLv2cT32cZbF6KvnU69LNxptYFBMCKs3yqLmCAVjPW4rNTExpB7RpGKGJEkD1E9MVmM8SUUJfUh42Ajo1Hgz5wUN6budvzaq"
+                },
+                "privateSpendKey": {
+                  "type": "string",
+                  "description": "The corresponding private spend key for this address, can be used to restore along with the shared private view key",
+                  "example": "6d4a7c160cbd4c9de33eeb161ff30539d2e28b447eb5af73523cc3379c591c83"
                 }
               }
             }
