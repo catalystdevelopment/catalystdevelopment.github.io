@@ -519,6 +519,11 @@
                   "type": "boolean",
                   "description": "Whether this wallet is a view only wallet. Certain operations are illegal on a view only wallet, such as transferring.",
                   "example": false
+                },
+                "subWalletCount": {
+                  "type": "integer",
+                  "description": "The amount of subwallets in the container",
+                  "example": 1
                 }
               }
             }
