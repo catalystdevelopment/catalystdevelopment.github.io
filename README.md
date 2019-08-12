@@ -3,7 +3,7 @@ This is a very lightly tweaked version of https://github.com/swagger-api/swagger
 
 ## Running
 
-Visit https://turtlecoin.github.io/wallet-api-docs/
+Visit catalystdevelopment.github.io
 
 Or, if developing locally, simply open `index.html` in your web browser
 
