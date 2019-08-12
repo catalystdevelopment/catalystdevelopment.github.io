@@ -3,7 +3,7 @@ This is a very lightly tweaked version of https://github.com/swagger-api/swagger
 
 ## Running
 
-Visit catalystdevelopment.github.io
+Visit https://catalystdevelopment.github.io/
 
 Or, if developing locally, simply open `index.html` in your web browser
 
